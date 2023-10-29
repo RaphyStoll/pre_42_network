@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 #nom de sortie du ficher (.a est une bibliotheque statique) (semplable a -o dans gcc)
 NAME = libft.a
 
