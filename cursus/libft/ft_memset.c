@@ -21,8 +21,7 @@ memset est souvent utilisée pour initialiser des tableaux ou des zones de mémo
 Elle est particulièrement utile pour éviter d'avoir des données résiduelles indésirables dans la mémoire.
 */
 
-#include <stdlib.h>
-#include <unistd.h>
+#include "libft.h"
 void *ft_memset(void *str, int value, size_t num)
 {
     if(str == NULL)
@@ -42,6 +41,7 @@ void *ft_memset(void *str, int value, size_t num)
     char_str[i] = '\0';
     return str;
 }
+/*
 int main()
 {
     char a[10];
@@ -50,4 +50,4 @@ int main()
     // Utilisez la fonction write pour afficher le contenu du tableau
     write(1, a, sizeof(a));
     return 0;
-}
+}*/

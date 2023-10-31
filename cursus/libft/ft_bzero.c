@@ -36,20 +36,19 @@ result : buffer= [0], [0], [0], [0], [0], [0], [0], [0], [0], [0]
     et elle est largement utilisée aujourd'hui.
 */
 
-#include <stdlib.h>
-#include <unistd.h>
+#include "libft.h"
 
-void ft_bzero(void *s, size_t num)
+void *ft_bzero(void *s, size_t num)
 {
-    if(s == NULL)
+    /*if(s == NULL)
     { // la sorite 2 est la sortie d'érreur
         write(2, "L'allocation de mémoire a échoué.\n", 31);
         return NULL;
-    }
-    ft_memset(s, '0', sizeof(num));
-
+    }*/
+    ft_memset(s, '0', num);
     return s;
 }
+/*
 int main()
 {
     char a[10];
@@ -59,4 +58,4 @@ int main()
     write(1, a, sizeof(a));
 
     return 0;
-}
+}*/

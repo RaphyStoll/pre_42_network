@@ -1,4 +1,3 @@
-<<<<<<< Updated upstream
 #nom de sortie du ficher (.a est une bibliotheque statique) (semplable a -o dans gcc)
 NAME = libft.a
 
@@ -12,9 +11,9 @@ ils deviennent inutile une fois le projet compiler on les concidère donc comme 
 AR = ar rcs
 #defini une valeur RM comme rm(remove) -f(option qui supprime sans demander la confirmation) 
 RM = rm -f
-# défini une valeur files qui contien les nom des fichier sources (sans extension) (fichier de code (fonjction.c)) à inclure dans la biblio le \ sert a spécifier que la commande continue sur la ligne suivante 
+# défini une valeur files qui contien les nom des fichier sources (sans extension) (fichier de code (fonjction.c)) à inclure dans la biblio
 FILES = ft_memset \
-ft_bzero.c
+		ft_bzero
 
 #défini une varleur SRCS_DIR ou l'on stoque le chemin d'acces des ficher ici ./ représente le répertoire du makefile
 SRCS_DIR = ./
@@ -43,4 +42,13 @@ $(NAME): $(OBJS)
 $^ représente tout les dépendances de la règles
 	$(AR) $@ $^
 #génère une cible qui s'appelle all souvent utiliser pour ciblé la construction principale (libft.a)
-all: $(NAME)
+ 
+#définit une règle courament utilisé pour nettoyer les fichier générer lors de la compil 
+clean:
+	$(RM) $(OBJS)
+#définit une règle qui depend de clean mais qui est est plus stricte(mesure de sécurité)
+fclean: clean
+	$(RM) $(NAME)
+#la regle re(rebuild) est utilisé pour reconstrure quelque chose ici on relance fclean\
+dans l'exemple cela fera fclean pour tout supprimer puis recompilera tout avec all
+re: fclean all
