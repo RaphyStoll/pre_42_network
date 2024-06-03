@@ -1,37 +1,37 @@
 #include <unistd.h>
 
-void ft_putchard(int c)
+void ft_putchard(char number)
 {
-    write(1, &c, 1);
+    write(1, &number, 1);
 }
 
 void ft_print_comb(void)
 {
-    int a = 0;
-    int b;
-    int c;
+    int firstNumber = 0;
+    int secondNumber;
+    int thirdNumber;
 
-    while(a <= 7)
+    while(firstNumber <= 7)
     {
-        b = a + 1; 
-        while(b <= 8)
+        secondNumber = firstNumber + 1; 
+        while(secondNumber <= 8)
         {
-            c = b + 1;
-            while(c <= 9)
+            thirdNumber = secondNumber + 1;
+            while(thirdNumber <= 9)
             {
-                ft_putchard(a + 48);
-                ft_putchard(b + 48);
-                ft_putchard(c + 48);
-                if (a != 7 || b != 8 || c != 9)
+                ft_putchard(firstNumber);
+                ft_putchard(secondNumber);
+                ft_putchard(thirdNumber);
+                if (firstNumber != 7 || secondNumber != 8 || thirdNumber != 9)
                 {
                     ft_putchard(',');
                     ft_putchard(' ');
                 }
-                c++;
+                thirdNumber++;
             }
-            b++;
+            secondNumber++;
         } 
-        a++;
+        firstNumber++;
     }
     ft_putchard('\n');
 }
