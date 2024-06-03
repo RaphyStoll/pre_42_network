@@ -3,16 +3,16 @@
 
 void ft_putchar(char character)
 {
- write(1, &character, 1);
+  write(1, &character, 1);
 }
 
 void ft_putnbr(int nb)
 {
-     if (nb == -2147483648)
-     {
-        write(1, "-2147483648", 12);
-        return;
-     }
+  if (nb == -2147483648)
+  {
+    write(1, "-2147483648", 12);
+    return;
+  }
   if (nb < 0)
   {
     nb = -nb;
@@ -27,14 +27,14 @@ void ft_putnbr(int nb)
 
 int main(int argc, char *argv[])
 {
-    if (argc != 2)
-    {
-        write(1, "Usage: ./program_name number\n", 29);
-        return 1;
-    }
+  if (argc != 2)
+  {
+    write(1, "Usage: ./program_name number\n", 29);
+    return 1;
+  }
 
-    int number = atoi(argv[1]);
-    ft_putnbr(number);
-    ft_putchar('\n');
-    return 0;
+  int number = atoi(argv[1]);
+  ft_putnbr(number);
+  ft_putchar('\n');
+  return 0;
 }

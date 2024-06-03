@@ -10,10 +10,10 @@ void ft_print_comb2(void)
   int firstNumber = -1;
   int secondNumber;
 
-  while(firstNumber++, firstNumber <= 98)
+  while (firstNumber++, firstNumber <= 98)
   {
     secondNumber = firstNumber;
-    while(secondNumber++, secondNumber <= 99)
+    while (secondNumber++, secondNumber <= 99)
     {
       ft_putchar(firstNumber / 10 + '0');
       ft_putchar(firstNumber % 10 + '0');
