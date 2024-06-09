@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcmp.c                                  :+:      :+:    :+:   */
+/*   ft_putnbr.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: RaphyStoll <raphystoll@zenithiac.ch>        +#+  +:+       +#+       */
 /*                                                +#+#+#+#+#+    +#+          */
-/*   Created: 2024/06/09 17:44:11 by RaphyStoll         #+#    #+#            */
-/*   Updated: 2024/06/09 17:44:11 by RaphyStoll         ###   ########.fr     */
+/*   Created: 2024/06/09 18:29:54 by RaphyStoll         #+#    #+#            */
+/*   Updated: 2024/06/09 18:29:54 by RaphyStoll         ###   ########.fr     */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,25 +21,35 @@
 #include <unistd.h>
 #include <stdlib.h>
 
-int ft_strcmp(char *s1, char *s2)
+void ft_putchar(char number)
 {
-  int count = 0;
-  while (s1[count] || s2[count])
+  write(1, &number, 1);
+}
+void ft_putnbr(int nb)
+{
+  if (nb == -2147483648)
   {
-    if (s1[count] != s2[count])
-      return (s1[count] - s2[count]);
-    count++;
+    write(1, "-2147483648", 12);
+    return;
   }
-  return 0;
+  if (nb < 0)
+  {
+    ft_putchar('-');
+    nb -= nb;
+  }
+  if (nb >= 10)
+  {
+    ft_putnbr(nb / 10);
+    ft_putnbr(nb % 10);
+  }
+  else
+    ft_putchar(nb + '0');
 }
 
 int main(int argc, char **argv)
 {
-  if (argc != 3)
-  {
-    printf("erreur Usage: %s argv[1] argv[2]", argv[0]);
-    return 1;
-  }
-  int result = ft_strcmp(argv[1], argv[2]);
-  printf("Result: %d\n", result);
+  (void)argc;
+  int number = atoi(argv[1]);
+  ft_putnbr(number);
+  return 0;
 }

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcmp.c                                  :+:      :+:    :+:   */
+/*   ft_strlen.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: RaphyStoll <raphystoll@zenithiac.ch>        +#+  +:+       +#+       */
 /*                                                +#+#+#+#+#+    +#+          */
-/*   Created: 2024/06/09 17:44:11 by RaphyStoll         #+#    #+#            */
-/*   Updated: 2024/06/09 17:44:11 by RaphyStoll         ###   ########.fr     */
+/*   Created: 2024/06/09 18:12:11 by RaphyStoll         #+#    #+#            */
+/*   Updated: 2024/06/09 18:12:11 by RaphyStoll         ###   ########.fr     */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,25 +21,22 @@
 #include <unistd.h>
 #include <stdlib.h>
 
-int ft_strcmp(char *s1, char *s2)
+int ft_strlen(char *str)
 {
   int count = 0;
-  while (s1[count] || s2[count])
-  {
-    if (s1[count] != s2[count])
-      return (s1[count] - s2[count]);
+  while (str[count])
     count++;
-  }
-  return 0;
+  return count;
 }
 
 int main(int argc, char **argv)
 {
-  if (argc != 3)
+  if (argc != 2)
   {
-    printf("erreur Usage: %s argv[1] argv[2]", argv[0]);
+    printf("Erreur Usage: %s argv[1]", argv[0]);
     return 1;
   }
-  int result = ft_strcmp(argv[1], argv[2]);
-  printf("Result: %d\n", result);
+  int result = ft_strlen(argv[1]);
+  printf("Nombre de caractère : %d", result);
+  return 0;
 }

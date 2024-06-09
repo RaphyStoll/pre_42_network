@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcmp.c                                  :+:      :+:    :+:   */
+/*   ft_putstr.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: RaphyStoll <raphystoll@zenithiac.ch>        +#+  +:+       +#+       */
 /*                                                +#+#+#+#+#+    +#+          */
-/*   Created: 2024/06/09 17:44:11 by RaphyStoll         #+#    #+#            */
-/*   Updated: 2024/06/09 17:44:11 by RaphyStoll         ###   ########.fr     */
+/*   Created: 2024/06/09 18:19:15 by RaphyStoll         #+#    #+#            */
+/*   Updated: 2024/06/09 18:19:15 by RaphyStoll         ###   ########.fr     */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,25 +21,25 @@
 #include <unistd.h>
 #include <stdlib.h>
 
-int ft_strcmp(char *s1, char *s2)
+void ft_putstr(char *str)
 {
   int count = 0;
-  while (s1[count] || s2[count])
+  char number = count + '0';
+  while (str[count])
   {
-    if (s1[count] != s2[count])
-      return (s1[count] - s2[count]);
+    write(1, &number, 1);
+    write(1, ".", 1);
+    write(1, " ", 1);
+    write(1, &str[count], 1);
+    write(1, "\n", 1);
     count++;
+    number++;
   }
-  return 0;
 }
 
 int main(int argc, char **argv)
 {
-  if (argc != 3)
-  {
-    printf("erreur Usage: %s argv[1] argv[2]", argv[0]);
+  if (argc != 2)
     return 1;
-  }
-  int result = ft_strcmp(argv[1], argv[2]);
-  printf("Result: %d\n", result);
+  ft_putstr(argv[1]);
 }
